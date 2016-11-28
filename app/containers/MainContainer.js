@@ -1,12 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
-import { addEntry } from "../actions"
+import { addEntry, activateEdit } from "../actions"
 import AddButtonContainer from "./AddButtonContainer"
 import Entries from "../components/Entries"
 
 let MainContainer = React.createClass({
   handleAddButtonClick () {
     this.props.dispatch(addEntry())
+    this.props.dispatch(activateEdit(this.props.state.entries.length))
   },
   render () {
     return (
