@@ -13,11 +13,11 @@ export const updateEntry = (entry, index) => ({
   index,
 })
 
-export const openModal = (index) => ({
-  type: "OPEN_MODAL",
+export const activateEdit = (index) => ({
+  type: "ACTIVATE_EDIT",
   index,
 })
 
-export const closeModal = () => ({
-  type: "CLOSE_MODAL",
+export const deactivateEdit = () => ({
+  type: "DEACTIVATE_EDIT",
 })

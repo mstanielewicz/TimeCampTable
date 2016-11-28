@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 import { connect } from "react-redux"
-import { removeEntry, openModal } from "../actions"
+import { removeEntry, activateEdit } from "../actions"
 import Entry from "../components/Entry"
 import EditEntry from "../components/EditEntry"
 
@@ -15,14 +15,14 @@ let EntryContainer = React.createClass({
     this.props.dispatch(removeEntry(this.props.index))
   },
   handleEdit () {
-    this.props.dispatch(openModal(this.props.index))
+    this.props.dispatch(activateEdit(this.props.index))
   },
-  modalOpenedIndex () {
-    return this.props.state.modal.modalOpened
+  editOpenedIndex () {
+    return this.props.state.edit.editOpened
   },
   render () {
     return (
-      (this.modalOpenedIndex() !== this.props.index)
+      (this.editOpenedIndex() !== this.props.index)
       ? <Entry
           index={this.props.index}
           name={this.props.name}

@@ -27,21 +27,21 @@ const entries = (state = [], action) => {
   }
 }
 
-const modalInit = {
-  modalOpened: -1
+const editInit = {
+  editOpened: -1
 }
 
-const modal = (state = modalInit, action) => {
+const edit = (state = editInit, action) => {
   switch (action.type) {
-    case "OPEN_MODAL":
+    case "ACTIVATE_EDIT":
       return {
         ...state,
-        modalOpened: action.index
+        editOpened: action.index
       }
-    case "CLOSE_MODAL":
+    case "DEACTIVATE_EDIT":
       return {
         ...state,
-        modalOpened: -1
+        editOpened: -1
       }
     default:
       return state
@@ -50,7 +50,7 @@ const modal = (state = modalInit, action) => {
 
 const reducers = combineReducers({
   entries,
-  modal
+  edit
 })
 
 export default reducers

@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 import { connect } from "react-redux"
-import { removeEntry, closeModal, updateEntry } from "../actions"
+import { removeEntry, deactivateEdit, updateEntry } from "../actions"
 
 let EditEntry = React.createClass({
   propTypes: {
@@ -32,7 +32,7 @@ let EditEntry = React.createClass({
     });
   },
   handleSave () {
-    this.props.dispatch(closeModal())
+    this.props.dispatch(deactivateEdit())
     this.props.dispatch(updateEntry(this.state, this.props.index))
   },
   render () {
